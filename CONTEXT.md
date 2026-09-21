@@ -21,6 +21,8 @@ The example uses text-only `tcgsd:` placeholders and version 1 `public/metadata.
 
 ## Constraints
 
+The template ZIP publishes from a versioned GitHub Release after its tag, package, lockfile, metadata, and commit pass checks. Main pushes no longer bump versions or publish automatically. See central `docs/RELEASING.md`, including the current limitation for immutable releases.
+
 - Preserve the ZIP layout and relative asset paths expected by consumers.
 - Treat metadata as an API contract: coordinate schema changes with the API and central documentation.
 - TypeScript 7 checks ordinary TS/TSX. Astro component compilation is verified by the build; full Astro language-server diagnostics remain a follow-up compatibility task.

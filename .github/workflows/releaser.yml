@@ -1,73 +1,43 @@
-name: Make New Release
+name: Publish template ZIP
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'package.json'
-      - 'CHANGELOG.md'
-#   pull_request:
-#     types: 
-#       - closed
-#     branches:
-#       - 'main'
-
+  release:
+    types: [published]
 permissions:
-  contents: write
-  pull-requests: write
-
+  contents: read
+concurrency:
+  group: publish-template
+  cancel-in-progress: false
 jobs:
-  
-  releaser:
+  publish:
     runs-on: ubuntu-latest
-
-    outputs:
-      new-tag: ${{ steps.bumper-step.outputs.tag }}
-
+    permissions:
+      contents: write
     steps:
-    - uses: actions/checkout@v4
-      
-    - name: Bump version and push tag
-      id: bumper-step
-      uses: TriPSs/conventional-changelog-action@v6.0.0
-      with:
-        git-message: 'chore(release): {version}'
-        preset: 'angular'
-        tag-prefix: ''
-        output-file: 'CHANGELOG.md'
-        git-user-email: "contact@bigfootds.com"
-        git-user-name: "BigfootDS"
-        version-file: './package.json,./public/metadata.json'
-        skip-on-empty: false
-
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '24'
-        cache: npm
-
-    - name: Set up dependencies
-      run: |
-        npm ci
-
-    - name: Build the project
-      run: |
-        npm run build
-
-    - name: Bundle changelog into build
-      run: |
-        cp CHANGELOG.md ./dist/CHANGELOG.md
-
-    - name: ZIP the build up to release it
-      run: |
-        cd ./dist/ && zip -r ../example-template.zip ./* && cd ..
-
-    - name: Create repo release
-      if: ${{ steps.bumper-step.outputs.skipped == 'false' }}
-      uses: softprops/action-gh-release@v2.2.2
-      with: 
-        body: ${{ steps.bumper-step.outputs.clean_changelog }}
-        tag_name: ${{ steps.bumper-step.outputs.tag }}
-        draft: false
-        prerelease: false
-        files: |
-          example-template.zip
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/tags/${{ github.event.release.tag_name }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Validate release identity and versions
+        run: node scripts/release-metadata.mjs
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - run: npm ci
+      - run: npm run check
+        env:
+          ASTRO_TELEMETRY_DISABLED: '1'
+      - name: Package the validated template
+        run: |
+          cp CHANGELOG.md dist/CHANGELOG.md
+          (cd dist && zip -r ../example-template.zip .)
+          sha256sum example-template.zip > example-template.zip.sha256
+      - name: Attach the ZIP to the published release
+        run: gh release upload "$RELEASE_TAG" example-template.zip example-template.zip.sha256 --repo "$GH_REPO"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
