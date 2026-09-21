@@ -6,11 +6,10 @@ import '../styles/style.css';
 // Import React components in the frontmatter so Astro knows how to parse and load them.
 import ExampleReactComponent from "../components/ExampleReactComponent";
 
-console.log("Astro component running!");
 ---
 
 <div class="example-vct">
-	<ExampleReactComponent client:load />
+	<ExampleReactComponent />
 	<section>
 		<h1>
 			tcgsd:name

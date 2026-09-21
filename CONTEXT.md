@@ -10,12 +10,12 @@ Read [central CONTEXT.md](../app-tcg-set-designer/CONTEXT.md), [tooling guidance
 
 ## Current implementation
 
-The example uses tcgsd: placeholders and public/metadata.json. Metadata currently supplies author, but the API loader expects templateAuthor. The frontend-package proposal and server-managed ZIP implementation have not been reconciled.
+The example uses text-only `tcgsd:` placeholders and version 1 `public/metadata.json`, with `templateAuthor` and localised name arrays. The API installs its HTML/assets ZIP and renders previews. React components produce static markup without client hydration. The canonical contract and schema live in the central repository; keep `contracts/visual-template-v1.schema.json` identical to its canonical copy.
 
 ## Commands
 
 - `npm ci` installs locked dependencies.
-- `npm run check` runs Oxlint, Astro sync, TypeScript 7 checks, and an Astro production build.
+- `npm run check` runs Oxlint, Astro sync, TypeScript 7 checks, native metadata tests, and an Astro production build.
 - `npm run dev` starts the Astro preview development server.
 - `npm run build` writes the template into dist/.
 

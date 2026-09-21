@@ -1,10 +1,12 @@
 {
+  "$schema": "https://tcgsetdesigner.com/schemas/visual-template-v1.schema.json",
+  "schemaVersion": 1,
   "internalName": "example-template",
   "version": "1.1.4",
   "website": "https://tcgsetdesigner.com/",
-  "repository": "https://github.com/BigfootDS/tcgsd-visual-card-base",
-  "author": {
-    "name": "Alex Stormwood",
+  "repository": "https://github.com/BigfootDS/template-tcgsd-visual-card-base",
+  "templateAuthor": {
+    "name": [{ "language": "en", "content": "Alex Stormwood" }],
     "url": "https://alexstormwood.com/",
     "email": "alex@bigfootds.com"
   },
@@ -14,7 +16,7 @@
       "content": "TCGSD Example Visual Card Template"
     },
     {
-      "language": "jp",
+      "language": "ja",
       "content": "TCGSD ビジュアルカードテンプレートの例"
     },
     {
