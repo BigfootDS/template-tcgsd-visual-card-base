@@ -123,3 +123,6 @@ The whole point of this system is that we don't need to pay the extortionate fee
 Issues and Discussions in this template's repository should be focused on issues, glitches, bugs, or questions and discussions about this specific example template. Use the central TCG Set Designer repository to discuss things, ask for help, or lodge bugs or other issues about the broader concept of templates as a whole.
 
 The central TCG Set Designer repository is here: [https://github.com/BigfootDS/tcg-set-designer](https://github.com/BigfootDS/tcg-set-designer)
+## Developer context
+
+See [CONTEXT.md](CONTEXT.md) and [AGENTS.md](AGENTS.md) before development. Project-wide tooling decisions and next tasks live in the [central repository](https://github.com/BigfootDS/app-tcg-set-designer).

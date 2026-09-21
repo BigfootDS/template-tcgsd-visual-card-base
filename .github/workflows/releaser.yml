@@ -40,9 +40,14 @@ jobs:
         version-file: './package.json,./public/metadata.json'
         skip-on-empty: false
 
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '24'
+        cache: npm
+
     - name: Set up dependencies
       run: |
-        npm install
+        npm ci
 
     - name: Build the project
       run: |
