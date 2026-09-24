@@ -13,5 +13,13 @@
   box-sizing: border-box;
 }
 .template-label { font: 600 11px system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
-.example-vct h1 { font-size: 28px; overflow-wrap: anywhere; }
-.example-vct h2 { font-size: 18px; font-weight: 400; }
+.card-header { border-bottom: 2px solid #254d40; padding-bottom: 12px; }
+.set-name { margin: 0; font: 600 12px system-ui, sans-serif; letter-spacing: .04em; }
+.example-vct h1 { margin: 4px 0; font-size: 28px; overflow-wrap: anywhere; }
+.example-vct h2 { margin: 18px 0 8px; font-size: 18px; font-weight: 600; }
+.example-vct p { overflow-wrap: anywhere; }
+.card-data { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0; }
+.card-data div { min-width: 0; padding: 8px; border: 1px solid #9ab7a5; border-radius: 6px; background: #fffdf5; }
+.card-data dt { font: 600 10px system-ui, sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+.card-data dd { margin: 4px 0 0; overflow-wrap: anywhere; }
+.numeric-data { grid-template-columns: repeat(3, minmax(0, 1fr)); }

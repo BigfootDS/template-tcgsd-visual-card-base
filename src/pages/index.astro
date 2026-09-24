@@ -10,15 +10,50 @@ import ExampleReactComponent from "../components/ExampleReactComponent";
 
 <div class="example-vct">
 	<ExampleReactComponent />
+	<header class="card-header">
+		<p class="set-name">tcgsd:containingSet</p>
+		<h1>tcgsd:name</h1>
+		<p>Card number: tcgsd:sortNumber</p>
+	</header>
 	<section>
-		<h1>
-			tcgsd:name
-		</h1>
-		<h2>
-			tcgsd:types
-		</h2>
-		<h2>
-			tcgsd:resource1
-		</h2>
+		<h2>Card identity</h2>
+		<dl class="card-data">
+			<div><dt>Game</dt><dd>tcgsd:game</dd></div>
+			<div><dt>tcgsd:containingSet.cardProfile.mapping.labels.relationships.categories</dt><dd>tcgsd:categories</dd></div>
+			<div><dt>tcgsd:containingSet.cardProfile.mapping.labels.relationships.types</dt><dd>tcgsd:types</dd></div>
+			<div><dt>tcgsd:containingSet.cardProfile.mapping.labels.relationships.rarity</dt><dd>tcgsd:rarity</dd></div>
+			<div><dt>tcgsd:containingSet.cardProfile.mapping.labels.relationships.resourceTypes</dt><dd>tcgsd:resourceTypes</dd></div>
+		</dl>
+	</section>
+	<section>
+		<h2>Generic numeric fields</h2>
+		<dl class="card-data numeric-data">
+			<div><dt>tcgsd:containingSet.cardProfile.mapping.labels.numeric.resource1.label</dt><dd>tcgsd:resource1</dd></div>
+			<div><dt>tcgsd:containingSet.cardProfile.mapping.labels.numeric.resource2.label</dt><dd>tcgsd:resource2</dd></div>
+			<div><dt>tcgsd:containingSet.cardProfile.mapping.labels.numeric.resource3.label</dt><dd>tcgsd:resource3</dd></div>
+			<div><dt>tcgsd:containingSet.cardProfile.mapping.labels.numeric.resource4.label</dt><dd>tcgsd:resource4</dd></div>
+			<div><dt>tcgsd:containingSet.cardProfile.mapping.labels.numeric.resource5.label</dt><dd>tcgsd:resource5</dd></div>
+		</dl>
+	</section>
+	<section>
+		<h2>tcgsd:containingSet.cardProfile.mapping.labels.relationships.ruleboxes</h2>
+		<dl class="card-data">
+			<div><dt>Names</dt><dd>tcgsd:ruleboxes</dd></div>
+			<div><dt>Rules</dt><dd>tcgsd:ruleboxes.rule</dd></div>
+		</dl>
+	</section>
+	<section>
+		<h2>tcgsd:containingSet.cardProfile.mapping.labels.relationships.actions</h2>
+		<dl class="card-data">
+			<div><dt>Names</dt><dd>tcgsd:actions</dd></div>
+			<div><dt>Descriptions</dt><dd>tcgsd:actions.description</dd></div>
+			<div><dt>Damage or result</dt><dd>tcgsd:actions.damage</dd></div>
+			<div><dt>Cost resources</dt><dd>tcgsd:actions.costs.resourceType</dd></div>
+			<div><dt>Cost quantities</dt><dd>tcgsd:actions.costs.quantity</dd></div>
+		</dl>
+	</section>
+	<section>
+		<h2>tcgsd:containingSet.cardProfile.mapping.labels.flavourText</h2>
+		<p>tcgsd:flavourText</p>
 	</section>
 </div>

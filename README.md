@@ -18,7 +18,7 @@ Put placeholders in text nodes:
 <p>tcgsd:resource1</p>
 ```
 
-The API selects translated text and escapes inserted content. Attribute placeholders are rejected. Use relative asset paths or the `/tcgsd-template-assets` prefix configured in Astro.
+The API selects translated text and escapes inserted content. Nested fields can use dot notation, including `tcgsd:actions.description`, `tcgsd:actions.costs.resourceType`, and `tcgsd:containingSet.cardProfile.mapping.labels.numeric.resource1.label`. An array resolves each matching value in order. Attribute placeholders are rejected. Use relative asset paths or the `/tcgsd-template-assets` prefix configured in Astro.
 
 ## Metadata and project guidance
 
