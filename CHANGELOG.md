@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/BigfootDS/tcgsd-visual-card-base/compare/1.2.0...1.2.1) (2026-09-24)
+
+### Bug Fixes
+
+* make the generic card template available to every game
+
+
 ## [1.2.0](https://github.com/BigfootDS/tcgsd-visual-card-base/compare/1.1.4...1.2.0) (2026-09-24)
 
 ### Features
@@ -43,5 +50,4 @@
 ### Features
 
 * add metadata static asset ([b458b2a](https://github.com/BigfootDS/tcgsd-visual-card-base/commit/b458b2a645a31360809c2a6fdf23a626884f88c4))
-
 

@@ -10,7 +10,7 @@ Read [central CONTEXT.md](../app-tcg-set-designer/CONTEXT.md), [tooling guidance
 
 ## Current implementation
 
-The example uses text-only `tcgsd:` placeholders and version 1 `public/metadata.json`, with `templateAuthor` and localised name arrays. Version 1.2.0 renders the complete generic card model: profile labels, card identity, all five numeric fields, ruleboxes, Actions with their counted resource costs, and flavour text. The API installs its HTML/assets ZIP and renders previews. React components produce static markup without client hydration. The canonical contract and schema live in the central repository; keep `contracts/visual-template-v1.schema.json` identical to its canonical copy.
+The example uses text-only `tcgsd:` placeholders and version 1 `public/metadata.json`, with `templateAuthor` and localised name arrays. Version 1.2.1 targets the `generic` game, renders the complete generic card model, and is a fallback template for every game: profile labels, card identity, all five numeric fields, ruleboxes, Actions with their counted resource costs, and flavour text. The API installs its HTML/assets ZIP and renders previews. React components produce static markup without client hydration. The canonical contract and schema live in the central repository; keep `contracts/visual-template-v1.schema.json` identical to its canonical copy.
 
 ## Commands
 

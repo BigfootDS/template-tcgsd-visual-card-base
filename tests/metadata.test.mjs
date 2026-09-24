@@ -12,5 +12,6 @@ test('release metadata conforms to the shared version 1 contract', async () => {
   addFormats(ajv);
   assert.equal(ajv.validate(schema, metadata), true, ajv.errorsText());
   assert.equal(metadata.version, packageInfo.version);
+  assert.equal(metadata.game.internalName, 'generic');
   assert.equal(metadata.name.some((item) => item.language === 'jp'), false);
 });

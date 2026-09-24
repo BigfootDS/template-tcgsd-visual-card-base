@@ -24,4 +24,6 @@ The API selects translated text and escapes inserted content. Nested fields can 
 
 `public/metadata.json` follows the version 1 schema in `contracts/visual-template-v1.schema.json`. Use `templateAuthor`, localised name arrays, and ISO 639-1 language codes such as `ja` for Japanese. Keep the metadata version aligned with `package.json`.
 
+This base template declares the seeded `generic` game. The API treats a generic template as compatible with every game and uses each card's saved profile to render the appropriate terminology.
+
 Read [CONTEXT.md](CONTEXT.md), [AGENTS.md](AGENTS.md), and the central [template contract](https://github.com/BigfootDS/app-tcg-set-designer/blob/main/docs/TEMPLATE-CONTRACT.md). The canonical schema and all project-wide decisions live in `app-tcg-set-designer`.
