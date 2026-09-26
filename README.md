@@ -30,4 +30,4 @@ Read [CONTEXT.md](CONTEXT.md), [AGENTS.md](AGENTS.md), and the central [template
 
 ## Package v2 implementation
 
-This checkout now builds two layouts in one package: **Reference sheet** (`index.html`) and **Compact card** (`compact/index.html`). Both support existing and typed-property profiles. Installation requires the coordinated v2-capable API; see the [central authoring and setup guide](../app-tcg-set-designer/docs/TEMPLATE-CONTRACT-V2.md). Package/release versions have not been bumped or published by this change.
+This checkout now builds two layouts in one package: **Reference sheet** (`index.html`) and **Compact card** (`compact/index.html`). Both support existing and typed-property profiles. Installation requires the coordinated v2-capable API; see the [central authoring and setup guide](../app-tcg-set-designer/docs/TEMPLATE-CONTRACT-V2.md). Package 2.0.0 requires API 3.1.0; its release workflow uploads the ZIP after checks pass.

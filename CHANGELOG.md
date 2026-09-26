@@ -1,3 +1,11 @@
+## 2.0.0 (26 September 2026)
+
+Requires TCG Set Designer API 3.1.0 or newer. Older APIs cannot install this schema v2 package; retain 1.2.1 until upgrading.
+
+- Package Reference sheet and Compact card layouts in one ZIP.
+- Render populated typed properties, reusable actions and counted costs.
+- Support both existing and schema v2 card profiles across all games.
+
 ## [1.2.1](https://github.com/BigfootDS/tcgsd-visual-card-base/compare/1.2.0...1.2.1) (2026-09-24)
 
 ### Bug Fixes
