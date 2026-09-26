@@ -1,0 +1,220 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://tcgsetdesigner.com/schemas/visual-template-v2.schema.json",
+  "title": "TCG Set Designer visual template package v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "internalName",
+    "version",
+    "name",
+    "templateAuthor",
+    "game",
+    "layouts",
+    "defaultLayout"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": 2
+    },
+    "internalName": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,79}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[A-Za-z0-9.-]+)?(?:\\+[A-Za-z0-9.-]+)?$"
+    },
+    "name": {
+      "$ref": "#/definitions/localisedText"
+    },
+    "website": {
+      "type": "string",
+      "format": "uri"
+    },
+    "repository": {
+      "type": "string",
+      "format": "uri"
+    },
+    "shouldAutoUpdate": {
+      "type": "boolean"
+    },
+    "templateAuthor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "email"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/localisedText"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    },
+    "game": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "internalName"
+      ],
+      "properties": {
+        "internalName": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9]+$"
+        },
+        "name": {
+          "$ref": "#/definitions/localisedText"
+        }
+      }
+    },
+    "defaultLayout": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,79}$"
+    },
+    "defaultTheme": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,79}$"
+    },
+    "layouts": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "entry"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,79}$"
+          },
+          "name": {
+            "$ref": "#/definitions/localisedText"
+          },
+          "entry": {
+            "type": "string",
+            "maxLength": 200,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9/_-]*\\.html$"
+          },
+          "cardTypes": {
+            "type": "array",
+            "maxItems": 50,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            }
+          },
+          "profileSchemaVersions": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                1,
+                2
+              ]
+            }
+          },
+          "requiredFields": {
+            "type": "array",
+            "maxItems": 50,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-zA-Z0-9]*\\.[a-z][a-zA-Z0-9]*$"
+            }
+          }
+        }
+      }
+    },
+    "themes": {
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,79}$"
+          },
+          "name": {
+            "$ref": "#/definitions/localisedText"
+          },
+          "resourceTypes": {
+            "type": "array",
+            "maxItems": 50,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            }
+          }
+        }
+      }
+    },
+    "symbols": {
+      "type": "object",
+      "maxProperties": 100,
+      "propertyNames": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "maxLength": 200,
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9/_-]*\\.(svg|png|jpg|jpeg|webp)$"
+      }
+    }
+  },
+  "definitions": {
+    "localisedText": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "language",
+          "content"
+        ],
+        "properties": {
+          "language": {
+            "type": "string",
+            "pattern": "^[a-z]{2}$"
+          },
+          "content": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

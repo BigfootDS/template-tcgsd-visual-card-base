@@ -1,12 +1,17 @@
 {
-  "$schema": "https://tcgsetdesigner.com/schemas/visual-template-v1.schema.json",
-  "schemaVersion": 1,
+  "$schema": "https://tcgsetdesigner.com/schemas/visual-template-v2.schema.json",
+  "schemaVersion": 2,
   "internalName": "example-template",
   "version": "1.2.1",
   "website": "https://tcgsetdesigner.com/",
   "repository": "https://github.com/BigfootDS/template-tcgsd-visual-card-base",
   "templateAuthor": {
-    "name": [{ "language": "en", "content": "Alex Stormwood" }],
+    "name": [
+      {
+        "language": "en",
+        "content": "Alex Stormwood"
+      }
+    ],
     "url": "https://alexstormwood.com/",
     "email": "alex@bigfootds.com"
   },
@@ -26,5 +31,36 @@
   ],
   "game": {
     "internalName": "generic"
-  }
+  },
+  "defaultLayout": "reference",
+  "layouts": [
+    {
+      "id": "reference",
+      "name": [
+        {
+          "language": "en",
+          "content": "Reference sheet"
+        }
+      ],
+      "entry": "index.html",
+      "profileSchemaVersions": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "compact",
+      "name": [
+        {
+          "language": "en",
+          "content": "Compact card"
+        }
+      ],
+      "entry": "compact/index.html",
+      "profileSchemaVersions": [
+        1,
+        2
+      ]
+    }
+  ]
 }

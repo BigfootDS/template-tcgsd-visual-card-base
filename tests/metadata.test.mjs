@@ -4,8 +4,8 @@ import { readFile } from 'node:fs/promises';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 
-test('release metadata conforms to the shared version 1 contract', async () => {
-  const schema = JSON.parse(await readFile(new URL('../contracts/visual-template-v1.schema.json', import.meta.url)));
+test('release metadata conforms to the shared version 2 contract', async () => {
+  const schema = JSON.parse(await readFile(new URL('../contracts/visual-template-v2.schema.json', import.meta.url)));
   const metadata = JSON.parse(await readFile(new URL('../public/metadata.json', import.meta.url)));
   const packageInfo = JSON.parse(await readFile(new URL('../package.json', import.meta.url)));
   const ajv = new Ajv({ allErrors: true });

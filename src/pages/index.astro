@@ -56,4 +56,7 @@ import ExampleReactComponent from "../components/ExampleReactComponent";
 		<h2>tcgsd:containingSet.cardProfile.mapping.labels.flavourText</h2>
 		<p>tcgsd:flavourText</p>
 	</section>
+  <section data-tcgsd-if="propertyEntries"><h2>Game-specific properties</h2>
+    <dl class="card-data"><div data-tcgsd-each="propertyEntries"><dt>tcgsd:item.label</dt><dd>tcgsd:item.value <small>tcgsd:item.unit</small></dd></div></dl>
+  </section>
 </div>
